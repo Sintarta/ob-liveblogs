@@ -91,11 +91,12 @@ function elb_render_toc( $liveblog_id, $args = array() ) {
 			<?php foreach ( $entries as $entry ) : ?>
 				<?php
 				// Get entry time formatted according to site settings
-				$time_format = get_option( 'time_format' );
-				$entry_time = get_the_time( $time_format, $entry );
+				// Use datetime format to show both date and time for clarity
+				$datetime_format = elb_get_datetime_format();
+				$entry_time = get_the_time( $datetime_format, $entry );
 				
-				// Build the anchor link - entries use data-elb-post-id attribute
-				$entry_url = add_query_arg( 'entry', $entry->ID, get_permalink( $liveblog_id ) );
+				// Build the anchor link using the existing helper function
+				$entry_url = elb_get_entry_url( $entry );
 				?>
 				<li class="elb-toc-item">
 					<span class="elb-toc-time"><?php echo esc_html( $entry_time ); ?></span>

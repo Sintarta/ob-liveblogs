@@ -81,6 +81,7 @@ if ( ! class_exists( 'Easy_Liveblogs' ) ) {
 			require_once $this->get_plugin_path() . 'includes/api/class-elb-feed.php';
 			require_once $this->get_plugin_path() . 'includes/caching/class-elb-transient.php';
 			require_once $this->get_plugin_path() . 'includes/caching/class-elb-object.php';
+			require_once $this->get_plugin_path() . 'includes/custom/elb-toc.php';
 		}
 
 		/**
